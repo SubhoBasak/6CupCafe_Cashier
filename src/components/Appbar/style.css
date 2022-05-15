@@ -1,0 +1,8 @@
+.nav-title-bar{
+    background-color: #333;
+}
+.nav-title-bar img{
+    max-width: 64px;
+    max-height: 64px;
+    object-fit: scale-down;
+}

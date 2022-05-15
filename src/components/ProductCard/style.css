@@ -1,0 +1,25 @@
+.product-card{
+    width: 128px;
+    max-width: 128px;
+    min-width: 128px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: #eee;
+    border: 1px solid #aaa;
+    margin: 12px 0 0 12px;
+    overflow: hidden;
+    padding: 0;
+    padding-bottom: 5px;
+}
+.product-card img{
+    max-width: 128px;
+    max-height: 128px;
+    object-fit: scale-down;
+    margin: auto;
+}
+.product-card p{
+    margin-bottom: 0;
+}
