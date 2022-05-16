@@ -31,6 +31,14 @@ const ExpressBilling = () => {
   const navigate = useNavigate();
 
   const newOrderApi = () => {
+    if (cname.length < 0 || phone.length < 0)
+      if (
+        !window.confirm(
+          "Do you want to place the order without customer details?"
+        )
+      )
+        return;
+
     const items = order.map((item) => ({
       pid: item.pid,
       qnt: item.qnt,
