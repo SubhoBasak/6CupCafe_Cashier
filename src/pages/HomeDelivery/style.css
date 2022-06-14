@@ -1,0 +1,8 @@
+.cat-sel-btns button{
+    border: none !important;
+    outline: none !important;
+}
+.cat-sel-btns button:hover{
+    background-color: rgba(var(--bs-primary-rgb), 0.1);
+    color: var(--bs-primary)
+}

@@ -8,6 +8,7 @@ import {
   Table,
   FormControl,
   Spinner,
+  FormSelect,
 } from "react-bootstrap";
 import "./style.css";
 
@@ -16,16 +17,19 @@ import ProductCard from "../../components/ProductCard";
 import OrderItem from "../../components/OrderItem";
 import { useNavigate } from "react-router-dom";
 
-const ExpressBilling = () => {
+const HomeDelivery = () => {
   const [allProds, setAllProds] = React.useState([]);
   const [allCatg, setAllCatg] = React.useState([]);
   const [order, setOrder] = React.useState([]);
+  const [delvs, setDelvs] = React.useState([]);
   const [payMethod, setPayMethod] = React.useState(0);
   const [curCat, setCurCat] = React.useState("");
   const [total, setTotal] = React.useState(0);
   const [phone, setPhone] = React.useState("");
   const [cname, setCname] = React.useState("");
   const [note, setNote] = React.useState("");
+  const [addr, setAddr] = React.useState("");
+  const [delv, setDelv] = React.useState("");
   const [loading, setLoading] = React.useState(false);
   const [taxes, setTaxes] = React.useState([]);
 
@@ -59,13 +63,21 @@ const ExpressBilling = () => {
         Authorization: localStorage.getItem("token"),
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ items, phone, cname, payMethod, orderType: 0 }),
+      body: JSON.stringify({
+        items,
+        phone,
+        cname,
+        payMethod,
+        delv,
+        orderType: 1,
+      }),
     }).then((res) => {
       if (res.status === 200) {
         setOrder([]);
         setPhone("");
         setCname("");
         setNote("");
+        setAddr("");
         setPayMethod(0);
       } else if (res.status === 401 || res.status === 405)
         return navigate("/login");
@@ -109,6 +121,20 @@ const ExpressBilling = () => {
         res.json().then((data) => {
           setAllCatg(data);
           setCurCat(data[0] ? data[0]._id : "");
+        });
+      else if (res.status === 401 || res.status === 405)
+        return navigate("/login");
+      else return alert("Something went wrong! Please try again.");
+    });
+
+    fetch(process.env.REACT_APP_BASE_URL + "/delivery", {
+      method: "GET",
+      headers: { Authorization: localStorage.getItem("token") },
+    }).then((res) => {
+      if (res.status === 200)
+        res.json().then((data) => {
+          setDelvs(data);
+          setDelv(data[0] | "");
         });
       else if (res.status === 401 || res.status === 405)
         return navigate("/login");
@@ -165,7 +191,6 @@ const ExpressBilling = () => {
                   price={prod.price}
                   pid={prod._id}
                   onClick={() => {
-                    if (!prod.inStock) return;
                     setTotal(total + prod.price);
                     for (let i = 0; i < order.length; i++) {
                       if (order[i].pid === prod._id) {
@@ -266,7 +291,7 @@ const ExpressBilling = () => {
             <FormControl
               pattern="[0-9]*"
               maxLength="13"
-              placeholder="Customer mobile number"
+              placeholder="Customer mobile number (optional)"
               value={phone}
               onChange={phnOnChangeHandler}
               autoComplete="customerNum"
@@ -277,7 +302,7 @@ const ExpressBilling = () => {
               <FormControl
                 type="text"
                 maxLength="100"
-                placeholder="Customer name"
+                placeholder="Customer name (optional)"
                 value={cname}
                 className="mt-2"
                 autoComplete="customerVal"
@@ -291,6 +316,23 @@ const ExpressBilling = () => {
               value={note}
               onChange={(e) => setNote(e.target.value)}
             />
+            <FormControl
+              className="mt-2"
+              type="text"
+              placeholder="Address (optional)"
+              value={addr}
+              onChange={(e) => setAddr(e.target.value)}
+            />
+            <FormSelect
+              className="mt-2"
+              onChange={(e) => setDelv(e.target.value)}
+            >
+              {delvs.map((delv, index) => (
+                <option key={index} value={delv._id}>
+                  {delv.name}
+                </option>
+              ))}
+            </FormSelect>
             <p>Payment method :</p>
             <ButtonGroup>
               <Button
@@ -330,4 +372,4 @@ const ExpressBilling = () => {
   );
 };
 
-export default ExpressBilling;
+export default HomeDelivery;

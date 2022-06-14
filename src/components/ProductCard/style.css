@@ -23,3 +23,6 @@
 .product-card p{
     margin-bottom: 0;
 }
+.stock-out{
+    font-size: 8px !important;
+}
