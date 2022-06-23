@@ -13,7 +13,7 @@ function App() {
     <BrowserRouter>
       <Appbar />
       <Routes>
-        <Route path="/express_billing" element={<ExpressBilling />} />
+        <Route path="/" element={<ExpressBilling />} />
         <Route path="/home_delivery" element={<HomeDelivery />} />
         <Route path="/login" element={<Login />} />
       </Routes>

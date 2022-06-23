@@ -7,7 +7,7 @@ const ProductCard = (props) => {
     <div
       className="product-card"
       onClick={() => {
-        if (props.stock) props.onClick();
+        if (props.stock > 0) props.onClick();
       }}
     >
       <img
@@ -15,7 +15,11 @@ const ProductCard = (props) => {
         alt="product"
       />
       <p>{props.name}</p>
-      {props.stock ? null : (
+      {props.stock ? (
+        <Badge pill bg="warning" className="stock-out text-dark">
+          Stock {props.stock}
+        </Badge>
+      ) : (
         <Badge pill bg="danger" className="stock-out">
           Out of Stock
         </Badge>

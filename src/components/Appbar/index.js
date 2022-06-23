@@ -12,7 +12,7 @@ const Appbar = () => {
       </div>
       <Nav variant="tabs" defaultActiveKey="/home">
         <Nav.Item>
-          <Link to="/express_billing" className="nav-link">
+          <Link to="/" className="nav-link">
             Express Billing
           </Link>
         </Nav.Item>

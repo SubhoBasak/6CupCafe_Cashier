@@ -36,7 +36,7 @@ const ExpressBilling = () => {
     taxes.map((tax) => {
       sum += (total * tax.tax) / 100;
     });
-    return sum;
+    return sum.toFixed(2);
   }
 
   const newOrderApi = () => {
@@ -160,12 +160,11 @@ const ExpressBilling = () => {
               return (
                 <ProductCard
                   key={index}
-                  stock={prod.inStock}
+                  stock={prod.stock}
                   name={prod.name}
                   price={prod.price}
                   pid={prod._id}
                   onClick={() => {
-                    if (!prod.inStock) return;
                     setTotal(total + prod.price);
                     for (let i = 0; i < order.length; i++) {
                       if (order[i].pid === prod._id) {
@@ -182,6 +181,7 @@ const ExpressBilling = () => {
                         pid: prod._id,
                         qnt: 1,
                         amount: prod.price,
+                        stock: prod.stock,
                       },
                     ]);
                   }}
@@ -213,6 +213,7 @@ const ExpressBilling = () => {
                 inc={() => {
                   for (let i = 0; i < order.length; i++) {
                     if (order[i].pid === item.pid) {
+                      if (order[i].qnt >= item.stock) return;
                       order[i].qnt++;
                       order[i].amount += item.price;
                       setTotal(total + item.price);

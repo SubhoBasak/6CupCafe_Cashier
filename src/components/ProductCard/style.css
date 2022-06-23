@@ -13,6 +13,7 @@
     overflow: hidden;
     padding: 0;
     padding-bottom: 5px;
+    cursor: grab;
 }
 .product-card img{
     max-width: 128px;

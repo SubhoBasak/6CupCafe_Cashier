@@ -40,7 +40,7 @@ const HomeDelivery = () => {
     taxes.map((tax) => {
       sum += (total * tax.tax) / 100;
     });
-    return sum;
+    return sum.toFixed(2);
   }
 
   const newOrderApi = () => {
