@@ -61,13 +61,8 @@ const ExpressBilling = () => {
       },
       body: JSON.stringify({ items, phone, cname, payMethod, orderType: 0 }),
     }).then((res) => {
-      if (res.status === 200) {
-        setOrder([]);
-        setPhone("");
-        setCname("");
-        setNote("");
-        setPayMethod(0);
-      } else if (res.status === 401 || res.status === 405)
+      if (res.status === 200) window.location.reload();
+      else if (res.status === 401 || res.status === 405)
         return navigate("/login");
       else return alert("Something went wrong! Please try again.");
     });
