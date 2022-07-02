@@ -1,5 +1,12 @@
 import React from "react";
-import { Button, Form, FormControl, FormLabel } from "react-bootstrap";
+import {
+  Button,
+  Form,
+  FormControl,
+  FormLabel,
+  Row,
+  Col,
+} from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 
@@ -38,27 +45,43 @@ const Login = () => {
   return (
     <div className="auth-canvas">
       <Form className="auth-form" onSubmit={loginApi}>
-        <div className="mb-3">
-          <FormLabel>Email</FormLabel>
-          <FormControl
-            type="email"
-            placeholder="Enter the email"
-            name="email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className="mb-3">
-          <FormLabel>Password</FormLabel>
-          <FormControl
-            type="password"
-            placeholder="Enter the password"
-            name="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <div className="mb-3 d-flex justify-content-center">
-          <Button type="submit">Log In</Button>
-        </div>
+        <Row>
+          <Col
+            lg="6"
+            md="6"
+            sm="12"
+            className="d-flex justify-content-center align-items-center"
+          >
+            <img
+              src={require("../../assets/images/logo.png")}
+              alt="logo"
+              className="logo-img"
+            />
+          </Col>
+          <Col lg="6" md="6" sm="12">
+            <div className="mb-3">
+              <FormLabel>Email</FormLabel>
+              <FormControl
+                type="email"
+                placeholder="Enter the email"
+                name="email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <FormLabel>Password</FormLabel>
+              <FormControl
+                type="password"
+                placeholder="Enter the password"
+                name="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <div className="mb-3 d-flex justify-content-center">
+              <Button type="submit">Log In</Button>
+            </div>
+          </Col>
+        </Row>
       </Form>
     </div>
   );
