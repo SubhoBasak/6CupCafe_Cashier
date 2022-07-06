@@ -187,14 +187,15 @@ const HomeDelivery = () => {
               return (
                 <ProductCard
                   key={index}
-                  stock={prod.inStock}
+                  stock={prod.stock}
                   name={prod.name}
                   price={prod.price}
                   pid={prod._id}
                   onClick={() => {
-                    setTotal(total + prod.price);
                     for (let i = 0; i < order.length; i++) {
                       if (order[i].pid === prod._id) {
+                        if (order[i].qnt === prod.stock) return;
+                        setTotal(total + prod.price);
                         order[i].qnt++;
                         order[i].amount += prod.price;
                         return setOrder([...order]);

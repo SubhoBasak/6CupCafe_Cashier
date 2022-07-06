@@ -12,7 +12,7 @@ const Orders = () => {
   React.useEffect(() => {
     if (!localStorage.getItem("token")) return navigate("/login");
 
-    fetch(process.env.REACT_APP_BASE_URL + "/sale/last_orders", {
+    fetch(process.env.REACT_APP_BASE_URL + "/sale/", {
       method: "GET",
       headers: { Authorization: localStorage.getItem("token") },
     }).then((res) => {
