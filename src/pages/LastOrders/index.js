@@ -37,6 +37,9 @@ const Orders = () => {
             <Alert variant="danger" className="ms-2 p-1 px-2 fs-6">
               Token: {order.token.toString().padStart(3, "0")}
             </Alert>
+            <Alert variant="info" className="ms-2 p-1 px-2 fs-6">
+              Status: {order.status === 0 ? "Complete" : "Collected"}
+            </Alert>
             {order.customer && order.customer.name ? (
               <>
                 <Alert variant="success" className="ms-2 p-1 px-2 fs-6">

@@ -3,6 +3,23 @@ import { Badge } from "react-bootstrap";
 import "./style.css";
 
 const ProductCard = (props) => {
+  if (props.qnt)
+    return (
+      <div
+        className="product-card"
+        onClick={() => {
+          if (props.stock > 0) props.onClick();
+        }}
+      >
+        <img
+          src={process.env.REACT_APP_BASE_URL + "/static/" + props.pid + ".jpg"}
+          alt="product"
+        />
+        <p>{props.name}</p>
+        <p className="fw-bold text-danger">Qnt. {props.qnt}</p>
+      </div>
+    );
+
   return (
     <div
       className="product-card"

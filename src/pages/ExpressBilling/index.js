@@ -151,7 +151,8 @@ const ExpressBilling = () => {
         </div>
         <div className="mt-2 d-flex flex-wrap justify-content-center p-2 border border-1 rounded">
           {allProds.map((prod, index) => {
-            if (prod.category._id !== curCat) return <div key={index}></div>;
+            if (prod.category && prod.category._id !== curCat)
+              return <div key={index}></div>;
             else
               return (
                 <ProductCard
@@ -170,6 +171,7 @@ const ExpressBilling = () => {
                         return setOrder([...order]);
                       }
                     }
+                    setTotal(total + prod.price);
                     setOrder([
                       ...order,
                       {
