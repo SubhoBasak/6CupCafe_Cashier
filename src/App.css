@@ -1,3 +1,26 @@
+body {
+    background: url(./assets/images/bg.jpg);
+}
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active {
+    background-color: #523629 !important;
+    outline-color: #523629 !important;
+    border-color: #523629 !important;
+    color: #fff !important;
+}
+
+.btn-outline-primary {
+    background-color: #fff !important;
+    outline-color: #523629 !important;
+    border-color: #523629 !important;
+    color: #523629 !important;
+}
+
+.text-primary,
+.nav-link {
+    color: #523629 !important
+}
 .auth-canvas{
     position: absolute;
     width: 100%;
@@ -9,14 +32,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #eee;
+    background: url(./assets/images/auth.jpg);
 }
 .auth-form{
     width: 90%;
     max-width: 600px;
     padding: 1rem;
     border-radius: 12px;
-    background-color: #fff;
+    background-color: #ffffff40;
+    backdrop-filter: blur(6px);
     box-shadow: 2px 4px 24px 3px #22222222;
 }
 .catg-btns {

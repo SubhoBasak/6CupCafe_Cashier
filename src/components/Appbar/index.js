@@ -7,8 +7,8 @@ const Appbar = () => {
   return (
     <>
       <div className="nav-title-bar d-flex align-items-center">
-        <img src={require("../../assets/images/logo-light.png")} alt="logo" />
-        <p className="fs-4 text-light my-0 ms-3 fw-light">6 Cups Cafe</p>
+        <img src={require("../../assets/images/logo.png")} alt="logo" />
+        <p className="fs-4 text-light my-0 ms-3 fw-light">Inibila</p>
         <div className="flex-grow-1 d-flex justify-content-end">
           <Button
             variant="outline-light"
