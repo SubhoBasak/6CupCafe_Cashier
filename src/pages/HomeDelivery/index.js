@@ -9,6 +9,7 @@ import {
   FormControl,
   Spinner,
   FormSelect,
+  FormLabel,
 } from "react-bootstrap";
 import "./style.css";
 
@@ -32,6 +33,8 @@ const HomeDelivery = () => {
   const [delv, setDelv] = React.useState("");
   const [loading, setLoading] = React.useState(false);
   const [taxes, setTaxes] = React.useState([]);
+  const [allDisc, setAllDisc] = React.useState([]);
+  const [selDisc, setSelDisc] = React.useState("NA");
 
   const navigate = useNavigate();
 
@@ -41,6 +44,16 @@ const HomeDelivery = () => {
       sum += (total * tax.tax) / 100;
       return null;
     });
+
+    if (selDisc !== "NA") {
+      const disc = allDisc.find((data) => data._id === selDisc);
+      if (disc !== null)
+        if (disc.mode) sum = (sum * (100 - disc.disc)) / 100;
+        else sum -= disc.disc;
+    }
+
+    if (sum < 0) sum = 0;
+
     return sum.toFixed(2);
   }
 
@@ -70,6 +83,7 @@ const HomeDelivery = () => {
         cname,
         payMethod,
         delv,
+        disc: selDisc,
         orderType: 1,
       }),
     }).then((res) => {
@@ -157,6 +171,16 @@ const HomeDelivery = () => {
       headers: { Authorization: localStorage.getItem("token") },
     }).then((res) => {
       if (res.status === 200) res.json().then((data) => setTaxes(data));
+      else if (res.status === 401 || res.status === 405)
+        return navigate("/login");
+      else return alert("Something went wrong! Please try again.");
+    });
+
+    fetch(process.env.REACT_APP_BASE_URL + "/discount", {
+      method: "GET",
+      headers: { Authorization: localStorage.getItem("token") },
+    }).then((res) => {
+      if (res.status === 200) res.json().then((data) => setAllDisc(data));
       else if (res.status === 401 || res.status === 405)
         return navigate("/login");
       else return alert("Something went wrong! Please try again.");
@@ -361,6 +385,19 @@ const HomeDelivery = () => {
                 UPI
               </Button>
             </ButtonGroup>
+            <div className="my-3">
+              <FormLabel className="w-100 text-end">Discount :</FormLabel>
+              <FormSelect onChange={(e) => setSelDisc(e.target.value)}>
+                <option key="default" value="NA">
+                  No discount
+                </option>
+                {allDisc.map((data, index) => (
+                  <option key={index} value={data._id}>
+                    {data.name}
+                  </option>
+                ))}
+              </FormSelect>
+            </div>
             <Button
               className="my-3"
               variant="success"

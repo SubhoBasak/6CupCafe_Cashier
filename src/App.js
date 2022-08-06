@@ -15,7 +15,8 @@ function App() {
     <BrowserRouter>
       <Appbar />
       <Routes>
-        <Route path="/" element={<ExpressBilling />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/express_billing" element={<ExpressBilling />} />
         <Route path="/home_delivery" element={<HomeDelivery />} />
         <Route path="/last_orders" element={<LastOrders />} />
         <Route path="/login" element={<Login />} />

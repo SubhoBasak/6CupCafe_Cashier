@@ -8,7 +8,9 @@ const Appbar = () => {
     <>
       <div className="nav-title-bar d-flex align-items-center">
         <img src={require("../../assets/images/logo.png")} alt="logo" />
-        <p className="fs-4 text-light my-0 ms-3 fw-light">Inibila</p>
+        <p className="fs-4 text-light my-0 ms-3 fw-light">
+          <strong>Inibila</strong>
+        </p>
         <div className="flex-grow-1 d-flex justify-content-end">
           <Button
             variant="outline-light"
@@ -26,7 +28,7 @@ const Appbar = () => {
       </div>
       <Nav variant="tabs" defaultActiveKey="/home">
         <Nav.Item>
-          <Link to="/" className="nav-link">
+          <Link to="/express_billing" className="nav-link">
             Express Billing
           </Link>
         </Nav.Item>
