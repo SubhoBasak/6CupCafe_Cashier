@@ -32,21 +32,21 @@ const Orders = () => {
         >
           <div className="w-100 p-2 fs-5 d-flex flex-wrap">
             <Alert className="ms-2 p-1 px-2 fs-6">
-              {new Date(order.date).toLocaleString()}
+              Time: {new Date(order.date).toLocaleTimeString()}
             </Alert>
             <Alert variant="danger" className="ms-2 p-1 px-2 fs-6">
               Token: {order.token.toString().padStart(3, "0")}
             </Alert>
             <Alert variant="info" className="ms-2 p-1 px-2 fs-6">
-              Status: {order.status === 0 ? "Complete" : "Collected"}
+              Status: {order.status === 0 ? "Order placed" : "Order completed"}
             </Alert>
             {order.customer && order.customer.name ? (
               <>
                 <Alert variant="success" className="ms-2 p-1 px-2 fs-6">
-                  {order.customer.name}
+                  Name: {order.customer.name}
                 </Alert>
                 <Alert variant="warning" className="ms-2 p-1 px-2 fs-6">
-                  {order.customer.phone}
+                  Phone: {order.customer.phone}
                 </Alert>
               </>
             ) : null}
