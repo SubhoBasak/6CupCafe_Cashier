@@ -8,6 +8,7 @@ import ExpressBilling from "./pages/ExpressBilling";
 import HomeDelivery from "./pages/HomeDelivery";
 import LastOrders from "./pages/LastOrders";
 import Login from "./pages/Login";
+import Print from "./pages/Print";
 import Token from "./pages/Token";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/home_delivery" element={<HomeDelivery />} />
         <Route path="/last_orders" element={<LastOrders />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/print" element={<Print />} />
         <Route path="/token" element={<Token />} />
       </Routes>
     </BrowserRouter>

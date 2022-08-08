@@ -87,14 +87,11 @@ const HomeDelivery = () => {
         orderType: 1,
       }),
     }).then((res) => {
-      if (res.status === 200) {
-        setOrder([]);
-        setPhone("");
-        setCname("");
-        setNote("");
-        setAddr("");
-        setPayMethod(0);
-      } else if (res.status === 401 || res.status === 405)
+      if (res.status === 200)
+        return navigate("/print", {
+          state: { order, taxes, total, allDisc, selDisc },
+        });
+      else if (res.status === 401 || res.status === 405)
         return navigate("/login");
       else return alert("Something went wrong! Please try again.");
     });
@@ -149,7 +146,7 @@ const HomeDelivery = () => {
       if (res.status === 200)
         res.json().then((data) => {
           setDelvs(data);
-          setDelv(data[0] | "");
+          setDelv(data[0] ? data[0]._id : "");
         });
       else if (res.status === 401 || res.status === 405)
         return navigate("/login");

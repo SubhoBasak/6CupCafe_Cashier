@@ -83,7 +83,10 @@ const ExpressBilling = () => {
         orderType: 0,
       }),
     }).then((res) => {
-      if (res.status === 200) window.location.reload();
+      if (res.status === 200)
+        return navigate("/print", {
+          state: { order, taxes, total, allDisc, selDisc },
+        });
       else if (res.status === 401 || res.status === 405)
         return navigate("/login");
       else return alert("Something went wrong! Please try again.");
