@@ -84,9 +84,11 @@ const ExpressBilling = () => {
       }),
     }).then((res) => {
       if (res.status === 200)
-        return navigate("/print", {
-          state: { order, taxes, total, allDisc, selDisc },
-        });
+        res.json().then((data) =>
+          navigate("/print", {
+            state: { order, taxes, total, allDisc, selDisc, token: data.token },
+          })
+        );
       else if (res.status === 401 || res.status === 405)
         return navigate("/login");
       else return alert("Something went wrong! Please try again.");

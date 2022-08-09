@@ -4,8 +4,6 @@ import { Button } from "react-bootstrap";
 import "./style.css";
 
 const Print = () => {
-  const [backHome, setBackHome] = React.useState(false);
-
   const navigate = useNavigate();
   const { state } = useLocation();
 
@@ -56,11 +54,12 @@ const Print = () => {
   return (
     <div className="print-bg">
       <div className="print-canvas">
-        <h1>Inibila</h1>
+        <img src={require("../../assets/images/logo.png")} alt="logo" />
+        <h1>Inibila - An Ethiopian Edition</h1>
         <p>
           3/A/1 DR. BN JOT SARANI, SERAMPORE - 712201
           <br />
-          LANDMARK - NEAR POST OFFICE
+          LANDMARK - NEAR HEAD POST OFFICE
         </p>
         <h1>INVOICE</h1>
         <table className="mb-3">
@@ -108,17 +107,10 @@ const Print = () => {
           className="print-btn-hide mb-3"
           onClick={() => {
             window.print();
-            setBackHome(!backHome);
+            navigate("/print_token", { state: { token: state.token } });
           }}
         >
           Print
-        </Button>
-        <Button
-          className="print-btn-hide"
-          onClick={() => navigate("/express_billing")}
-          disabled={!backHome}
-        >
-          Back to Home
         </Button>
       </div>
     </div>
