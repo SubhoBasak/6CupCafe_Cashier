@@ -34,7 +34,7 @@
     max-width: 90%;
     word-wrap: break-word;
     text-align: left;
-    font-size: 10px;
+    font-size: 14px;
 }
 @media print {
     .print-btn-hide {

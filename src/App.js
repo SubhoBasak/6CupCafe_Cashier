@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { MemoryRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 
 import Appbar from "./components/Appbar";
@@ -14,7 +14,7 @@ import Token from "./pages/Token";
 
 function App() {
   return (
-    <BrowserRouter>
+    <MemoryRouter>
       <Appbar />
       <Routes>
         <Route path="/" element={<Login />} />
@@ -26,7 +26,7 @@ function App() {
         <Route path="/print" element={<Print />} />
         <Route path="/token" element={<Token />} />
       </Routes>
-    </BrowserRouter>
+    </MemoryRouter>
   );
 }
 
