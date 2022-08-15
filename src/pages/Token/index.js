@@ -49,7 +49,7 @@ const TokenSetting = () => {
             value={start}
             onChange={(e) => setStart(e.target.value)}
           />
-          <Button variant="outline-success" className="ms-2">
+          <Button type="submit" variant="outline-success" className="ms-2">
             Save
           </Button>
         </Form>

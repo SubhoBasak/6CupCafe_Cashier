@@ -23,7 +23,7 @@ const Print = () => {
 
     if (sum < 0) sum = 0;
 
-    return sum.toFixed(2);
+    return Math.round(sum).toFixed(2);
   }
 
   function getDisc() {
