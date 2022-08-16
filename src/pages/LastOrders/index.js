@@ -9,10 +9,20 @@ const Orders = () => {
 
   const navigate = useNavigate();
 
+  const showToken = (token) => {
+    if (token)
+      return (
+        <Alert variant="danger" className="ms-2 p-1 px-2 fs-6">
+          Token: {token.toString().padStart(3, "0")}
+        </Alert>
+      );
+    else return <></>;
+  };
+
   React.useEffect(() => {
     if (!localStorage.getItem("token")) return navigate("/login");
 
-    fetch(process.env.REACT_APP_BASE_URL + "/sale/", {
+    fetch(process.env.REACT_APP_BASE_URL + "/sale", {
       method: "GET",
       headers: { Authorization: localStorage.getItem("token") },
     }).then((res) => {
@@ -34,9 +44,7 @@ const Orders = () => {
             <Alert className="ms-2 p-1 px-2 fs-6">
               Time: {new Date(order.date).toLocaleTimeString()}
             </Alert>
-            <Alert variant="danger" className="ms-2 p-1 px-2 fs-6">
-              Token: {order.token.toString().padStart(3, "0")}
-            </Alert>
+            {showToken(order.token)}
             <Alert variant="info" className="ms-2 p-1 px-2 fs-6">
               Status: {order.status === 0 ? "Order placed" : "Order completed"}
             </Alert>
@@ -49,6 +57,11 @@ const Orders = () => {
                   Phone: {order.customer.phone}
                 </Alert>
               </>
+            ) : null}
+            {order.orderType === 1 ? (
+              <Alert className="ms-2 p-1 px-2 fs-6" variant="danger">
+                Parcel : {order.delivery.name}
+              </Alert>
             ) : null}
             <hr className="w-100 my-0" />
           </div>

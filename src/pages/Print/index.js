@@ -107,7 +107,11 @@ const Print = () => {
           className="print-btn-hide mb-3"
           onClick={() => {
             window.print();
-            navigate("/print_token", { state: { token: state.token } });
+            if (state.homeDelv) return navigate("/express_billing");
+            else
+              return navigate("/print_token", {
+                state: { token: state.token },
+              });
           }}
         >
           Print

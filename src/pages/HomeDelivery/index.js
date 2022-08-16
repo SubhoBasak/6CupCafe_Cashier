@@ -89,7 +89,7 @@ const HomeDelivery = () => {
     }).then((res) => {
       if (res.status === 200)
         return navigate("/print", {
-          state: { order, taxes, total, allDisc, selDisc },
+          state: { order, taxes, total, allDisc, selDisc, homeDelv: true },
         });
       else if (res.status === 401 || res.status === 405)
         return navigate("/login");
