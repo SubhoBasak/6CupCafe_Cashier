@@ -3,9 +3,11 @@ import { Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 import ProductCard from "../../components/ProductCard";
+import ComboList from "../../components/ComboList";
 
 const Orders = () => {
   const [orders, setOrders] = React.useState([]);
+  const [combo, setCombo] = React.useState("");
 
   const navigate = useNavigate();
 
@@ -72,10 +74,13 @@ const Orders = () => {
               name={item.item.name}
               qnt={item.quantity}
               price={item.price}
+              comb={item.item.note ? true : false}
+              showCombo={() => setCombo(item.item.note)}
             />
           ))}
         </div>
       ))}
+      <ComboList show={combo !== ""} close={() => setCombo("")} note={combo} />
     </div>
   );
 };
