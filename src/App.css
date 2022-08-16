@@ -1,3 +1,6 @@
+:root{
+    --primary: #523629;
+}
 body {
     background: url(./assets/images/bg.jpg);
 }

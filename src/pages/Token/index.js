@@ -35,7 +35,7 @@ const TokenSetting = () => {
         return navigate("/login");
       else return alert("Something went wrong! Please try again.");
     });
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="container mt-4 mx-auto p-2 border border-1 rounded">

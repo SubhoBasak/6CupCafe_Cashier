@@ -27,3 +27,22 @@
 .stock-out{
     font-size: 12px !important;
 }
+.prod-info-btn{
+    background-color: #ddd;
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    background-color: var(--bs-danger);
+    border: none;
+    outline: none;
+    color: #fff;
+    font-weight: bold;
+    transition: 1s ease all;
+}
+.prod-info-btn:hover{
+    transform: scale(1.2);
+}

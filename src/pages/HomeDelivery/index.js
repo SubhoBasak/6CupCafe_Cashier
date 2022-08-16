@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Col,
   Row,
@@ -16,7 +17,7 @@ import "./style.css";
 // components
 import ProductCard from "../../components/ProductCard";
 import OrderItem from "../../components/OrderItem";
-import { useNavigate } from "react-router-dom";
+import ComboList from "../../components/ComboList";
 
 const HomeDelivery = () => {
   const [allProds, setAllProds] = React.useState([]);
@@ -35,6 +36,7 @@ const HomeDelivery = () => {
   const [taxes, setTaxes] = React.useState([]);
   const [allDisc, setAllDisc] = React.useState([]);
   const [selDisc, setSelDisc] = React.useState("NA");
+  const [combo, setCombo] = React.useState("");
 
   const navigate = useNavigate();
 
@@ -213,6 +215,8 @@ const HomeDelivery = () => {
                   name={prod.name}
                   price={prod.price}
                   pid={prod._id}
+                  comb={prod.note ? true : false}
+                  showCombo={() => setCombo(prod.note)}
                   onClick={() => {
                     for (let i = 0; i < order.length; i++) {
                       if (order[i].pid === prod._id) {
@@ -406,6 +410,7 @@ const HomeDelivery = () => {
           </Col>
         </Row>
       </Col>
+      <ComboList show={combo !== ""} close={() => setCombo("")} note={combo} />
     </Row>
   );
 };
