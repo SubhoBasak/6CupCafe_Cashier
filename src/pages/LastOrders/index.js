@@ -73,12 +73,12 @@ const Orders = () => {
             <hr className="w-100 my-0" />
           </div>
           {order.address ? (
-            <Alert variant="primary" className="w-100 my-3 p-2">
+            <Alert variant="primary" className="w-100 my-1 p-2">
               <strong>Address: </strong> {order.address}
             </Alert>
           ) : null}
           {order.note ? (
-            <Alert variant="secondary" className="w-100 my-3 p-2">
+            <Alert variant="secondary" className="w-100 my-1 p-2">
               <strong>Note: </strong>
               {order.note}
             </Alert>
