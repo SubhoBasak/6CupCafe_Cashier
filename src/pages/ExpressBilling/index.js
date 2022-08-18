@@ -34,6 +34,7 @@ const ExpressBilling = () => {
   const [allDisc, setAllDisc] = React.useState([]);
   const [selDisc, setSelDisc] = React.useState("NA");
   const [combo, setCombo] = React.useState("");
+  const [parcel, setParcel] = React.useState(false);
 
   const navigate = useNavigate();
 
@@ -80,6 +81,7 @@ const ExpressBilling = () => {
         items,
         phone,
         cname,
+        parcel,
         payMethod,
         disc: selDisc,
         orderType: 0,
@@ -367,6 +369,15 @@ const ExpressBilling = () => {
                   </option>
                 ))}
               </FormSelect>
+            </div>
+            <div className="mb-3 d-flex align-items-center">
+              <FormLabel className="fs-4 me-3">Parcel</FormLabel>
+              <input
+                type="checkbox"
+                className="parcel-cb"
+                defaultChecked={parcel}
+                onChange={(e) => setParcel(e.target.checked)}
+              />
             </div>
             <Button
               className="my-3"

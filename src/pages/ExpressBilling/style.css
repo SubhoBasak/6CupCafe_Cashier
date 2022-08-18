@@ -6,3 +6,7 @@
     background-color: rgba(var(--bs-primary-rgb), 0.1);
     color: var(--bs-primary)
 }
+.parcel-cb{
+    width: 32px;
+    height: 32px;
+}

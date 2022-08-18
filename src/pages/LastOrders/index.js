@@ -47,6 +47,11 @@ const Orders = () => {
               Time: {new Date(order.date).toLocaleTimeString()}
             </Alert>
             {showToken(order.token)}
+            {order.parcel === true ? (
+              <Alert className="ms-2 p-1 px-2 fs-6" variant="warning">
+                Parcel
+              </Alert>
+            ) : null}
             <Alert variant="info" className="ms-2 p-1 px-2 fs-6">
               Status: {order.status === 0 ? "Order placed" : "Order completed"}
             </Alert>
