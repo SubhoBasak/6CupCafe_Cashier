@@ -83,6 +83,7 @@ const ExpressBilling = () => {
         cname,
         parcel,
         payMethod,
+        note,
         disc: selDisc,
         orderType: 0,
       }),
@@ -326,13 +327,14 @@ const ExpressBilling = () => {
                 onChange={(e) => setCname(e.target.value)}
               />
             )}
-            <FormControl
+            <textarea
               type="text"
+              rows={3}
               placeholder="Note (optional)"
-              className="mt-2"
+              className="form-control mt-2"
               value={note}
               onChange={(e) => setNote(e.target.value)}
-            />
+            ></textarea>
             <p>Payment method :</p>
             <ButtonGroup>
               <Button

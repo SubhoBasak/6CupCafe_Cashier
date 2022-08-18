@@ -85,6 +85,7 @@ const HomeDelivery = () => {
         cname,
         payMethod,
         delv,
+        note,
         disc: selDisc,
         orderType: 1,
       }),
@@ -338,13 +339,14 @@ const HomeDelivery = () => {
                 onChange={(e) => setCname(e.target.value)}
               />
             )}
-            <FormControl
+            <textarea
               type="text"
+              rows={3}
               placeholder="Note (optional)"
-              className="mt-2"
+              className="form-control mt-2"
               value={note}
               onChange={(e) => setNote(e.target.value)}
-            />
+            ></textarea>
             <FormControl
               className="mt-2"
               type="text"

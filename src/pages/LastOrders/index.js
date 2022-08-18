@@ -72,6 +72,11 @@ const Orders = () => {
             ) : null}
             <hr className="w-100 my-0" />
           </div>
+          {order.note ? (
+            <Alert variant="secondary" className="w-100 my-3 p-2">
+              {order.note}
+            </Alert>
+          ) : null}
           {order.items.map((item, index) => (
             <ProductCard
               key={index}
