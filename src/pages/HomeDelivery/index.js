@@ -86,6 +86,7 @@ const HomeDelivery = () => {
         payMethod,
         delv,
         note,
+        addr,
         disc: selDisc,
         orderType: 1,
       }),
@@ -98,7 +99,6 @@ const HomeDelivery = () => {
             total,
             allDisc,
             selDisc,
-            addr,
             homeDelv: true,
           },
         });
