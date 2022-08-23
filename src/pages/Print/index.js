@@ -110,7 +110,7 @@ const Print = () => {
             if (state.homeDelv) return navigate("/express_billing");
             else
               return navigate("/print_token", {
-                state: { token: state.token },
+                state: { token: state.token, order: state.order },
               });
           }}
         >
