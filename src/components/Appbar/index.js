@@ -39,9 +39,14 @@ const Appbar = () => {
         </Nav.Item>
         <Nav.Item>
           <Link to="/last_orders" className="nav-link">
-            Last Orders
+            Current Status
           </Link>
         </Nav.Item>
+        <Nav.Item>
+        <Link to="/sales" className="nav-link">
+          Past Orders
+        </Link>
+      </Nav.Item>
         <Nav.Item>
           <Link to="/token" className="nav-link">
             Token
