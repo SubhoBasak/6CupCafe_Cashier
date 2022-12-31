@@ -37,12 +37,6 @@ const PrintToken = () => {
           Token : {state.token.toString().padStart(3, "0")}
         </p>
         <span>
-          Steps to follow once your order is accepted:
-          <br /> - Follow the display board to know your order status.
-          <br /> - Once your order is ready, collect your order from the counter
-          by exchanging your token with your order.
-          <br /> - Enjoy your order, if any issues are faced visit the reception
-          to solve it.
         </span>
       </div>
       <div className="d-flex flex-column justify-content-center">

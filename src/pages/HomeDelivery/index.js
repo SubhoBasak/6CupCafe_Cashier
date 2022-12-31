@@ -197,6 +197,7 @@ const HomeDelivery = () => {
 
   return (
     <Row className="w-100 p-2">
+    <Col lg="12" md="12" sm="12" className="p-2"> <h1>Home Delivery</h1> </Col>
       <Col lg="6" md="12" sm="12" className="p-2">
         <div className="cat-sel-btns d-flex p-2 border border-1 rounded catg-btns">
           {allCatg.map((catg, index) => {
