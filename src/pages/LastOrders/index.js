@@ -6,6 +6,7 @@ import ProductCard from "../../components/ProductCard";
 import ComboList from "../../components/ComboList";
 
 const Orders = () => {
+  const [reload, setReload] = React.useState(false);
   const [orders, setOrders] = React.useState([]);
   const [combo, setCombo] = React.useState("");
 
@@ -20,7 +21,11 @@ const Orders = () => {
       );
     else return <></>;
   };
-
+  
+  
+  const autoreload = setInterval(()=>{setReload(!reload)}, 5000)
+  const autof =()=>{clearInterval(autoreload, 1000)}
+  setInterval(()=>{autof()}, 7000)
   React.useEffect(() => {
     if (!localStorage.getItem("token")) return navigate("/login");
 
@@ -33,7 +38,7 @@ const Orders = () => {
         return navigate("/login");
       else return alert("Something went wrong! Please try again.");
     });
-  }, [navigate]);
+  }, [navigate, reload]);
 
   return (
     <div className="p-2">
