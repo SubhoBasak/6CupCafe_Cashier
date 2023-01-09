@@ -87,10 +87,6 @@ const Orders = () => {
                   <strong>Date : </strong>
                   {new Date(order.date).toLocaleString()}
                 </li>
-                <li>
-                  <strong>Total : </strong>
-                  {order.total}
-                </li>
                 {order.token ? (
                   <li>
                     <strong>Token : </strong>
@@ -151,7 +147,7 @@ const Orders = () => {
                     key={index}
                     pid={item.item._id}
                     name={item.item.name}
-                    stock={item.quantity}
+                    qnt={item.quantity}
                     history
                   />
                 );
