@@ -396,6 +396,13 @@ const HomeDelivery = () => {
               >
                 UPI
               </Button>
+                 <Button
+                variant={payMethod === 3 ? "primary" : "outline-primary"}
+                onClick={() => setPayMethod(3)}
+                disabled={order.length ? false : true}
+              >
+                Pay By Partner
+              </Button>
             </ButtonGroup>
             <div className="my-3">
               <FormLabel className="w-100 text-end">Discount :</FormLabel>

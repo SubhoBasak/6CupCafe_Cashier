@@ -34,8 +34,8 @@ const Orders = () => {
 
     fetch(
       process.env.REACT_APP_BASE_URL +
-        "/sale/all?" +
-        new URLSearchParams({ start, end }),
+      "/sale/all?" +
+      new URLSearchParams({ start, end }),
       {
         method: "GET",
         headers: { Authorization: localStorage.getItem("token") },
@@ -102,8 +102,10 @@ const Orders = () => {
                   {order.payMethod === 0
                     ? "Cash"
                     : order.payMethod === 1
-                    ? "Card"
-                    : "UPI"}
+                      ? "Card"
+                      : order.payMethod === 2
+                        ? "Upi"
+                        : "Pay By Partner"}
                 </li>
                 {order.customer ? (
                   <>

@@ -17,8 +17,6 @@ const PrintToken = () => {
               <th></th>
               <th>Description</th>
               <th>Qty</th>
-              <th>Rate</th>
-              <th>Amount</th>
             </tr>
           </thead>
           <tbody>
@@ -27,8 +25,6 @@ const PrintToken = () => {
                 <td>{index + 1}.</td>
                 <td>{data.name}</td>
                 <td>{data.qnt}</td>
-                <td>{data.price.toFixed(2)}</td>
-                <td>{data.amount.toFixed(2)}</td>
               </tr>
             ))}
           </tbody>
