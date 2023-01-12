@@ -133,12 +133,9 @@ const Orders = () => {
                   </li>
                 ) : null}
               </ul>
-              <Button variant="primary" style={{height:"fit-content", marginLeft:"50px"}} onClick={()=>{navigate("/print", {
-                
-              })}}>
+              <Button variant="primary" style={{height:"fit-content", marginLeft:"50px"}}>
                   Print Invoice
-                  
-              </Button>
+                      </Button>
               <hr className="w-100 my-0" />
             </div>
             {order.note ? (
