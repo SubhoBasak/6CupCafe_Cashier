@@ -22,17 +22,17 @@ const Orders = () => {
     else return <></>;
   };
   
-  // const curStatus = (code)=>{
-  //   if(code === 0){
-  //     return "Order Placed"
-  //   }
-  //   else if(code === 1){
-  //     return "Order Accepted"
-  //   }
-  //   else if(code === 2){
-  //     return "Order Completed"
-  //   }
-  // }
+  const curStatus = (code)=>{
+    if(code === 0){
+      return "Order Placed"
+    }
+    else if(code === 1){
+      return "Order Accepted"
+    }
+    else if(code === 2){
+      return "Order Completed"
+    }
+  }
   
   const autoreload = setInterval(()=>{setReload(!reload)}, 5000)
   const autof =()=>{clearInterval(autoreload, 1000)}
@@ -73,7 +73,7 @@ const Orders = () => {
               </Alert>
             ) : null}
             <Alert variant="info" className="ms-2 p-1 px-2 fs-6">
-              Status: {order.status === 0 ? "Order placed" : "Order completed"}
+              Status: {curStatus(order.status)}
             </Alert>
             {order.customer && order.customer.name ? (
               <>
