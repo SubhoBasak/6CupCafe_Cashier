@@ -20,6 +20,7 @@ import OrderItem from "../../components/OrderItem";
 import ComboList from "../../components/ComboList";
 
 const ExpressBilling = () => {
+  const [reload, setReload] = React.useState(false);
   const [allProds, setAllProds] = React.useState([]);
   const [allCatg, setAllCatg] = React.useState([]);
   const [order, setOrder] = React.useState([]);
@@ -171,11 +172,18 @@ const ExpressBilling = () => {
         return navigate("/login");
       else return alert("Something went wrong! Please try again.");
     });
-  }, [navigate]);
+  }, [navigate, reload]);
 
   return (
     <Row className="w-100 p-2">
-     <Col lg="12" md="12" sm="12" className="p-2"> <h1>Express Billing</h1> </Col>
+     <Col lg="12" md="12" sm="12" className="p-2"> 
+     <h1>Express Billing</h1> 
+     <Button 
+     variant="primary" 
+     style={{height:"fit-content", marginLeft:"800px", marginTop:"-95px"}}
+     onClick={() => setReload(!reload)}
+      >Reload</Button> 
+     </Col>
       <Col lg="6" md="12" sm="12" className="p-2">
         <div className="cat-sel-btns d-flex p-2 border border-1 rounded catg-btns">
           {allCatg.map((catg, index) => {
