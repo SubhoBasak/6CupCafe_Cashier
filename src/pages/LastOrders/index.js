@@ -22,6 +22,17 @@ const Orders = () => {
     else return <></>;
   };
   
+  // const curStatus = (code)=>{
+  //   if(code === 0){
+  //     return "Order Placed"
+  //   }
+  //   else if(code === 1){
+  //     return "Order Accepted"
+  //   }
+  //   else if(code === 2){
+  //     return "Order Completed"
+  //   }
+  // }
   
   const autoreload = setInterval(()=>{setReload(!reload)}, 5000)
   const autof =()=>{clearInterval(autoreload, 1000)}
@@ -39,7 +50,6 @@ const Orders = () => {
       else return alert("Something went wrong! Please try again.");
     });
   }, [navigate, reload]);
-
   return (
     <div className="p-2">
       {orders.map((order, index) => (
